@@ -14,7 +14,7 @@ always @(posedge move_clock) begin
 	if(key[0]==0 && key[1]==1) begin
 		if(stackbodyY[0]>=400) begin
 			stackbodyY[0]<=stackbodyY[0];
-		end else begin
+	end else begin
 		stackbodyY[0]=stackbodyY[0]+10;//move right
 		end
 	end else if(key[1]==0 && key[0]==1) begin
