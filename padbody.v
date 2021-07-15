@@ -1,4 +1,4 @@
-module padody(vga_clk,key,move_clock,body_x,body_y,start,sys_rst_n,head);
+module padbody(vga_clk,key,move_clock,body_x,body_y,start,sys_rst_n,head);
 input[3:0] key;
 input wire start,sys_rst_n;
 input vga_clk,move_clock;
