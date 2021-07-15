@@ -4,7 +4,7 @@ input vga_clk,move_clock;
 input wire [11:0]body_x;
 input wire [11:0]body_y;
 output reg head;
-reg [11:0]stackbodyX[63:0];//To store all the x coordinates of 63 parts of the snake
+reg [11:0]stackbodyX[63:0];
 reg [11:0]stackbodyY[63:0];
 reg	[3:0]	movex,movey;
 always @(posedge move_clock) begin
