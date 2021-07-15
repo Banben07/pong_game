@@ -1,18 +1,29 @@
-module ballbody(VGA_CLK,CLK_50,move_clock,bCounterX,bCounterY,start,reset,head)
-input wire start,reset;
-wire [2:0] direction;
-input VGA_CLK,move_clock,CLK_50;
-input wire [11:0]CounterX;
-input wire [11:0]CounterY;
+module padody(vga_clk,move_clock,body_x,body_y,start,sys_rst_n,head);
+input wire start,sys_rst_n;
+input vga_clk,move_clock;
+input wire [11:0]body_x;
+input wire [11:0]body_y;
 output reg head;
-wire [11:0]stackbodyX[63:0];
+reg [11:0]stackbodyX[63:0];//To store all the x coordinates of 63 parts of the snake
 reg [11:0]stackbodyY[63:0];
-
-always @(posedge CLK_50)
-		if(~start || reset) begin
-			bstackbodyY[0]<=205;
-			for (count11=1;count11<=63;count11=count11+1)
-				begin
-					stackbodyY[count11]<=720;
-				end
-	end
+reg	[3:0]	movex,movey;
+always @(posedge move_clock) begin
+		if(~start || sys_rst_n) begin
+			 stackbodyY[0]<=240;stackbodyX[0]<=320;movex<=10;movey<=10;
+	    end else if(stackbodyY[0]<=5) begin
+			 movey=~movey;movex<=movex;
+		end else if(stackbodyY[0]<=470) begin
+			 movey=~movey;movex<=movex;
+	    end else if(stackbodyX[0]<=0) begin
+			 stackbodyY[0]<=240;stackbodyX[0]<=320;
+	    end else if(stackbodyX[0]<=640) begin
+			 stackbodyY[0]<=240;stackbodyX[0]<=320;		
+		end else begin
+			 stackbodyY[0]<=stackbodyY[0]+movey;stackbodyX[0]<=stackbodyX[0]+movex;
+		end
+end
+always @(vga_clk)
+begin
+	head<=(body_x>stackbodyX[0] && body_x<(stackbodyX[0]+5)) && (body_y>stackbodyY[0] && body_y<stackbodyY[0]+5);
+end
+endmodule
