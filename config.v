@@ -1,5 +1,5 @@
 `ifndef body_w
-`define body_w 10'd15//方块宽度
+`define body_w 10'd5//方块宽度
 `endif
 
 `ifndef body_l
@@ -16,4 +16,8 @@
 
 `ifndef H_DISP
 `define H_DISP 10'd640//屏幕宽
+`endif
+
+`ifndef BALL_W
+`define BALL_W 10'd10//球大小
 `endif

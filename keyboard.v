@@ -1,5 +1,5 @@
 module keyboard(
-					input	 iCLK_50,
+					input	  CLK_50,
 					inout   ps2_dat,
 					input   ps2_clk,
 					input   sys_clk,
@@ -145,7 +145,7 @@ assign ps2_dat_syn0 = ps2_dat;
 
 //clk division, derive a 97.65625KHz clock from the 50MHz source;
 reg [8:0] clk_div;
-always@(posedge iCLK_50)
+always@(posedge CLK_50)
 	begin
 		clk_div <= clk_div+1;
 	end

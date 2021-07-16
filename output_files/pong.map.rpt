@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pong
-Thu Jul 15 22:12:28 2021
+Fri Jul 16 16:38:39 2021
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -23,8 +23,10 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
  15. Parameter Settings for User Entity Instance: vga_display:u_vga_display|body:body0
  16. Parameter Settings for User Entity Instance: vga_display:u_vga_display|body:body1
  17. altpll Parameter Settings by Entity Instance
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 18. Port Connectivity Checks: "keyboard:keyboard0"
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -50,15 +52,15 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 15 22:12:28 2021       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 16 16:38:39 2021       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; pong                                        ;
 ; Top-level Entity Name              ; vag_b                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 235                                         ;
-;     Total combinational functions  ; 234                                         ;
-;     Dedicated logic registers      ; 63                                          ;
-; Total registers                    ; 63                                          ;
+; Total logic elements               ; 699                                         ;
+;     Total combinational functions  ; 678                                         ;
+;     Dedicated logic registers      ; 185                                         ;
+; Total registers                    ; 185                                         ;
 ; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -163,11 +165,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -176,6 +179,8 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                  ; Library ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; keyboard.v                       ; yes             ; User Verilog HDL File        ; D:/WHU/dianzi/project/pong/keyboard.v                                         ;         ;
+; ballbody.v                       ; yes             ; User Verilog HDL File        ; D:/WHU/dianzi/project/pong/ballbody.v                                         ;         ;
 ; vga_pll.v                        ; yes             ; User Wizard-Generated File   ; D:/WHU/dianzi/project/pong/vga_pll.v                                          ;         ;
 ; vag_b.v                          ; yes             ; User Verilog HDL File        ; D:/WHU/dianzi/project/pong/vag_b.v                                            ;         ;
 ; vga_driver.v                     ; yes             ; User Verilog HDL File        ; D:/WHU/dianzi/project/pong/vga_driver.v                                       ;         ;
@@ -196,20 +201,20 @@ applicable agreement for further details.
 +---------------------------------------------+------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                    ;
 +---------------------------------------------+------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 235                                                                                      ;
+; Estimated Total logic elements              ; 699                                                                                      ;
 ;                                             ;                                                                                          ;
-; Total combinational functions               ; 234                                                                                      ;
+; Total combinational functions               ; 678                                                                                      ;
 ; Logic element usage by number of LUT inputs ;                                                                                          ;
-;     -- 4 input functions                    ; 69                                                                                       ;
-;     -- 3 input functions                    ; 68                                                                                       ;
-;     -- <=2 input functions                  ; 97                                                                                       ;
+;     -- 4 input functions                    ; 222                                                                                      ;
+;     -- 3 input functions                    ; 216                                                                                      ;
+;     -- <=2 input functions                  ; 240                                                                                      ;
 ;                                             ;                                                                                          ;
 ; Logic elements by mode                      ;                                                                                          ;
-;     -- normal mode                          ; 122                                                                                      ;
-;     -- arithmetic mode                      ; 112                                                                                      ;
+;     -- normal mode                          ; 375                                                                                      ;
+;     -- arithmetic mode                      ; 303                                                                                      ;
 ;                                             ;                                                                                          ;
-; Total registers                             ; 63                                                                                       ;
-;     -- Dedicated logic registers            ; 63                                                                                       ;
+; Total registers                             ; 185                                                                                      ;
+;     -- Dedicated logic registers            ; 185                                                                                      ;
 ;     -- I/O registers                        ; 0                                                                                        ;
 ;                                             ;                                                                                          ;
 ; I/O pins                                    ; 35                                                                                       ;
@@ -218,9 +223,9 @@ applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                                        ;
 ;                                             ;                                                                                          ;
 ; Maximum fan-out node                        ; vga_pll:u_vga_pll|altpll:altpll_component|vga_pll_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 66                                                                                       ;
-; Total fan-out                               ; 990                                                                                      ;
-; Average fan-out                             ; 2.69                                                                                     ;
+; Maximum fan-out                             ; 118                                                                                      ;
+; Total fan-out                               ; 2702                                                                                     ;
+; Average fan-out                             ; 2.89                                                                                     ;
 +---------------------------------------------+------------------------------------------------------------------------------------------+
 
 
@@ -229,11 +234,13 @@ applicable agreement for further details.
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                            ; Library Name ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+--------------+
-; |vag_b                                   ; 234 (1)           ; 63 (0)       ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |vag_b                                                                         ; work         ;
-;    |vga_display:u_vga_display|           ; 158 (91)          ; 42 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display                                               ; work         ;
-;       |body:body0|                       ; 50 (50)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display|body:body0                                    ; work         ;
-;       |body:body1|                       ; 17 (17)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display|body:body1                                    ; work         ;
-;    |vga_driver:u_vga_driver|             ; 75 (75)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_driver:u_vga_driver                                                 ; work         ;
+; |vag_b                                   ; 678 (14)          ; 185 (13)     ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |vag_b                                                                         ; work         ;
+;    |keyboard:keyboard0|                  ; 90 (90)           ; 59 (59)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|keyboard:keyboard0                                                      ; work         ;
+;    |vga_display:u_vga_display|           ; 491 (236)         ; 92 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display                                               ; work         ;
+;       |ballbody:u_ballbody|              ; 183 (183)         ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody                           ; work         ;
+;       |body:body0|                       ; 56 (56)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display|body:body0                                    ; work         ;
+;       |body:body1|                       ; 16 (16)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_display:u_vga_display|body:body1                                    ; work         ;
+;    |vga_driver:u_vga_driver|             ; 83 (83)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_driver:u_vga_driver                                                 ; work         ;
 ;    |vga_pll:u_vga_pll|                   ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_pll:u_vga_pll                                                       ; work         ;
 ;       |altpll:altpll_component|          ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_pll:u_vga_pll|altpll:altpll_component                               ; work         ;
 ;          |vga_pll_altpll:auto_generated| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vag_b|vga_pll:u_vga_pll|altpll:altpll_component|vga_pll_altpll:auto_generated ; work         ;
@@ -257,29 +264,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------+--------------------------------------------------------------+
 ; vga_display:u_vga_display|pixel_data[1..15]      ; Merged with vga_display:u_vga_display|pixel_data[0]          ;
 ; vga_display:u_vga_display|pixel_data[16..22]     ; Merged with vga_display:u_vga_display|pixel_data[23]         ;
-; vga_display:u_vga_display|body:body1|div_cnt[17] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[17] ;
-; vga_display:u_vga_display|body:body1|div_cnt[16] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[16] ;
-; vga_display:u_vga_display|body:body1|div_cnt[15] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[15] ;
-; vga_display:u_vga_display|body:body1|div_cnt[14] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[14] ;
-; vga_display:u_vga_display|body:body1|div_cnt[12] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[12] ;
-; vga_display:u_vga_display|body:body1|div_cnt[7]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[7]  ;
-; vga_display:u_vga_display|body:body1|div_cnt[3]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[3]  ;
-; vga_display:u_vga_display|body:body1|div_cnt[2]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[2]  ;
-; vga_display:u_vga_display|body:body1|div_cnt[1]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[1]  ;
-; vga_display:u_vga_display|body:body1|div_cnt[0]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[0]  ;
 ; vga_display:u_vga_display|body:body1|div_cnt[21] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[21] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[20] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[20] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[19] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[19] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[18] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[18] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[13] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[13] ;
+; vga_display:u_vga_display|body:body1|div_cnt[8]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[8]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[7]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[7]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[5]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[5]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[3]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[3]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[2]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[2]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[1]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[1]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[0]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[0]  ;
+; vga_display:u_vga_display|body:body1|div_cnt[17] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[17] ;
+; vga_display:u_vga_display|body:body1|div_cnt[16] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[16] ;
+; vga_display:u_vga_display|body:body1|div_cnt[15] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[15] ;
+; vga_display:u_vga_display|body:body1|div_cnt[14] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[14] ;
+; vga_display:u_vga_display|body:body1|div_cnt[12] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[12] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[11] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[11] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[10] ; Merged with vga_display:u_vga_display|body:body0|div_cnt[10] ;
 ; vga_display:u_vga_display|body:body1|div_cnt[9]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[9]  ;
-; vga_display:u_vga_display|body:body1|div_cnt[8]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[8]  ;
 ; vga_display:u_vga_display|body:body1|div_cnt[6]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[6]  ;
-; vga_display:u_vga_display|body:body1|div_cnt[5]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[5]  ;
 ; vga_display:u_vga_display|body:body1|div_cnt[4]  ; Merged with vga_display:u_vga_display|body:body0|div_cnt[4]  ;
-; Total Number of Removed Registers = 44           ;                                                              ;
+; keyboard:keyboard0|clk_div[0]                    ; Merged with VGA_CLKo[0]                                      ;
+; keyboard:keyboard0|clk_div[1]                    ; Merged with VGA_CLKo[1]                                      ;
+; keyboard:keyboard0|clk_div[2]                    ; Merged with VGA_CLKo[2]                                      ;
+; keyboard:keyboard0|clk_div[3]                    ; Merged with VGA_CLKo[3]                                      ;
+; keyboard:keyboard0|clk_div[4]                    ; Merged with VGA_CLKo[4]                                      ;
+; keyboard:keyboard0|clk_div[5]                    ; Merged with VGA_CLKo[5]                                      ;
+; keyboard:keyboard0|clk_div[6]                    ; Merged with VGA_CLKo[6]                                      ;
+; keyboard:keyboard0|clk_div[7]                    ; Merged with VGA_CLKo[7]                                      ;
+; VGA_CLKo[13..31]                                 ; Lost fanout                                                  ;
+; Total Number of Removed Registers = 71           ;                                                              ;
 +--------------------------------------------------+--------------------------------------------------------------+
 
 
@@ -288,41 +304,73 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 63    ;
-; Number of registers using Synchronous Clear  ; 42    ;
+; Total registers                              ; 185   ;
+; Number of registers using Synchronous Clear  ; 72    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 63    ;
+; Number of registers using Asynchronous Clear ; 123   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 28    ;
+; Number of registers using Clock Enable       ; 80    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------+
-; Inverted Register Statistics                             ;
-+------------------------------------------------+---------+
-; Inverted Register                              ; Fan out ;
-+------------------------------------------------+---------+
-; vga_display:u_vga_display|body:body0|body_y[7] ; 5       ;
-; vga_display:u_vga_display|body:body0|body_y[6] ; 5       ;
-; vga_display:u_vga_display|body:body0|body_y[3] ; 5       ;
-; vga_display:u_vga_display|body:body1|body_y[7] ; 5       ;
-; vga_display:u_vga_display|body:body1|body_y[6] ; 5       ;
-; vga_display:u_vga_display|body:body1|body_y[3] ; 5       ;
-; Total number of inverted registers = 6         ;         ;
-+------------------------------------------------+---------+
++-----------------------------------------------------------------------+
+; Inverted Register Statistics                                          ;
++-------------------------------------------------------------+---------+
+; Inverted Register                                           ; Fan out ;
++-------------------------------------------------------------+---------+
+; vga_display:u_vga_display|body:body1|body_y[7]              ; 6       ;
+; vga_display:u_vga_display|body:body1|body_y[6]              ; 6       ;
+; vga_display:u_vga_display|body:body1|body_y[3]              ; 7       ;
+; vga_display:u_vga_display|body:body0|body_y[7]              ; 7       ;
+; vga_display:u_vga_display|body:body0|body_y[6]              ; 7       ;
+; vga_display:u_vga_display|body:body0|body_y[3]              ; 7       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[8] ; 4       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[5] ; 5       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[4] ; 7       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[3] ; 6       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[1] ; 5       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[0] ; 7       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[7] ; 8       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[6] ; 8       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[5] ; 8       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[3] ; 8       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[1] ; 9       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[0] ; 6       ;
+; keyboard:keyboard0|key1_code[7]                             ; 3       ;
+; keyboard:keyboard0|key1_code[5]                             ; 3       ;
+; keyboard:keyboard0|key2_code[7]                             ; 3       ;
+; keyboard:keyboard0|key2_code[5]                             ; 3       ;
+; keyboard:keyboard0|key2_code[4]                             ; 5       ;
+; keyboard:keyboard0|key2_code[6]                             ; 5       ;
+; keyboard:keyboard0|key1_code[4]                             ; 5       ;
+; keyboard:keyboard0|key1_code[6]                             ; 5       ;
+; vga_display:u_vga_display|ballbody:u_ballbody|x_direct      ; 11      ;
+; vga_display:u_vga_display|ballbody:u_ballbody|y_direct      ; 12      ;
+; Total number of inverted registers = 28                     ;         ;
++-------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|body:body0|body_y[4] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|body:body1|body_y[9] ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |vag_b|vga_display:u_vga_display|body:body0|body_y[7] ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |vag_b|vga_display:u_vga_display|body:body1|body_y[3] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|score[1]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|score[2]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |vag_b|keyboard:keyboard0|key1_code[0]                             ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|body:body0|body_y[2]              ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|body:body1|body_y[8]              ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[2] ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[9] ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |vag_b|keyboard:keyboard0|key2_code[1]                             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |vag_b|keyboard:keyboard0|key1_code[4]                             ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |vag_b|vga_display:u_vga_display|body:body0|body_y[6]              ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |vag_b|vga_display:u_vga_display|body:body1|body_y[3]              ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|stackbodyX[5] ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|stackbodyY[7] ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |vag_b|keyboard:keyboard0|key2_code[4]                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------+
@@ -753,12 +801,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keyboard:keyboard0"                                                                                         ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                  ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; ps2_dat ; Bidir  ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; key1_on ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; key2_on ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -768,9 +827,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Thu Jul 15 22:12:26 2021
+    Info: Processing started: Fri Jul 16 16:38:35 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pong -c pong
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file keyboard.v
+    Info (12023): Found entity 1: keyboard
+Info (12021): Found 1 design units, including 1 entities, in source file ballbody.v
+    Info (12023): Found entity 1: ballbody
 Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.v
     Info (12023): Found entity 1: vga_pll
 Info (12021): Found 1 design units, including 1 entities, in source file vag_b.v
@@ -782,7 +845,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_dis
 Info (12021): Found 1 design units, including 1 entities, in source file body.v
     Info (12023): Found entity 1: body
 Info (12021): Found 0 design units, including 0 entities, in source file config.v
+Warning (10236): Verilog HDL Implicit Net warning at vag_b.v(33): created implicit net for "keyboard_sysclk"
 Info (12127): Elaborating entity "vag_b" for the top level hierarchy
+Info (12128): Elaborating entity "keyboard" for hierarchy "keyboard:keyboard0"
+Warning (10036): Verilog HDL or VHDL warning at keyboard.v(57): object "HOST_ACK" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at keyboard.v(23): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at keyboard.v(30): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at keyboard.v(57): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at keyboard.v(74): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at keyboard.v(98): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at keyboard.v(150): truncated value with size 32 to match size of target (9)
+Warning (10230): Verilog HDL assignment warning at keyboard.v(172): truncated value with size 32 to match size of target (8)
 Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_pll:u_vga_pll"
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll:u_vga_pll|altpll:altpll_component"
 Info (12130): Elaborated megafunction instantiation "vga_pll:u_vga_pll|altpll:altpll_component"
@@ -848,56 +921,79 @@ Info (12128): Elaborating entity "vga_pll_altpll" for hierarchy "vga_pll:u_vga_p
 Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:u_vga_driver"
 Info (12128): Elaborating entity "vga_display" for hierarchy "vga_display:u_vga_display"
 Info (12128): Elaborating entity "body" for hierarchy "vga_display:u_vga_display|body:body0"
-Warning (10230): Verilog HDL assignment warning at body.v(35): truncated value with size 22 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at body.v(36): truncated value with size 22 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at body.v(43): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at body.v(48): truncated value with size 32 to match size of target (10)
-Warning (10240): Verilog HDL Always Construct warning at body.v(33): inferring latch(es) for variable "body_x", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at body.v(33): inferring latch(es) for variable "body_y", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "body_y[0]" at body.v(33)
-Info (10041): Inferred latch for "body_x[0]" at body.v(33)
-Info (10041): Inferred latch for "body_x[1]" at body.v(33)
-Info (10041): Inferred latch for "body_x[2]" at body.v(33)
-Info (10041): Inferred latch for "body_x[3]" at body.v(33)
-Info (10041): Inferred latch for "body_x[4]" at body.v(33)
-Info (10041): Inferred latch for "body_x[5]" at body.v(33)
-Info (10041): Inferred latch for "body_x[6]" at body.v(33)
-Info (10041): Inferred latch for "body_x[7]" at body.v(33)
-Info (10041): Inferred latch for "body_x[8]" at body.v(33)
-Info (10041): Inferred latch for "body_x[9]" at body.v(33)
+Warning (10230): Verilog HDL assignment warning at body.v(39): truncated value with size 22 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at body.v(40): truncated value with size 22 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at body.v(47): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at body.v(52): truncated value with size 32 to match size of target (10)
+Warning (10240): Verilog HDL Always Construct warning at body.v(37): inferring latch(es) for variable "body_x", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at body.v(37): inferring latch(es) for variable "body_y", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "body_y[0]" at body.v(37)
+Info (10041): Inferred latch for "body_x[0]" at body.v(37)
+Info (10041): Inferred latch for "body_x[1]" at body.v(37)
+Info (10041): Inferred latch for "body_x[2]" at body.v(37)
+Info (10041): Inferred latch for "body_x[3]" at body.v(37)
+Info (10041): Inferred latch for "body_x[4]" at body.v(37)
+Info (10041): Inferred latch for "body_x[5]" at body.v(37)
+Info (10041): Inferred latch for "body_x[6]" at body.v(37)
+Info (10041): Inferred latch for "body_x[7]" at body.v(37)
+Info (10041): Inferred latch for "body_x[8]" at body.v(37)
+Info (10041): Inferred latch for "body_x[9]" at body.v(37)
 Info (12128): Elaborating entity "body" for hierarchy "vga_display:u_vga_display|body:body1"
-Warning (10230): Verilog HDL assignment warning at body.v(35): truncated value with size 22 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at body.v(36): truncated value with size 22 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at body.v(43): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at body.v(48): truncated value with size 32 to match size of target (10)
-Warning (10240): Verilog HDL Always Construct warning at body.v(33): inferring latch(es) for variable "body_x", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at body.v(33): inferring latch(es) for variable "body_y", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "body_y[0]" at body.v(33)
-Info (10041): Inferred latch for "body_x[0]" at body.v(33)
-Info (10041): Inferred latch for "body_x[1]" at body.v(33)
-Info (10041): Inferred latch for "body_x[2]" at body.v(33)
-Info (10041): Inferred latch for "body_x[3]" at body.v(33)
-Info (10041): Inferred latch for "body_x[4]" at body.v(33)
-Info (10041): Inferred latch for "body_x[5]" at body.v(33)
-Info (10041): Inferred latch for "body_x[6]" at body.v(33)
-Info (10041): Inferred latch for "body_x[7]" at body.v(33)
-Info (10041): Inferred latch for "body_x[8]" at body.v(33)
-Info (10041): Inferred latch for "body_x[9]" at body.v(33)
+Warning (10230): Verilog HDL assignment warning at body.v(39): truncated value with size 22 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at body.v(40): truncated value with size 22 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at body.v(47): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at body.v(52): truncated value with size 32 to match size of target (10)
+Warning (10240): Verilog HDL Always Construct warning at body.v(37): inferring latch(es) for variable "body_x", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at body.v(37): inferring latch(es) for variable "body_y", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "body_y[0]" at body.v(37)
+Info (10041): Inferred latch for "body_x[0]" at body.v(37)
+Info (10041): Inferred latch for "body_x[1]" at body.v(37)
+Info (10041): Inferred latch for "body_x[2]" at body.v(37)
+Info (10041): Inferred latch for "body_x[3]" at body.v(37)
+Info (10041): Inferred latch for "body_x[4]" at body.v(37)
+Info (10041): Inferred latch for "body_x[5]" at body.v(37)
+Info (10041): Inferred latch for "body_x[6]" at body.v(37)
+Info (10041): Inferred latch for "body_x[7]" at body.v(37)
+Info (10041): Inferred latch for "body_x[8]" at body.v(37)
+Info (10041): Inferred latch for "body_x[9]" at body.v(37)
+Info (12128): Elaborating entity "ballbody" for hierarchy "vga_display:u_vga_display|ballbody:u_ballbody"
+Warning (10230): Verilog HDL assignment warning at ballbody.v(15): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(71): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(72): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(88): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(89): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(90): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(93): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(94): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(95): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(99): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at ballbody.v(100): truncated value with size 32 to match size of target (11)
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC
     Warning (13410): Pin "VGA_SYNC_N" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 19 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/WHU/dianzi/project/pong/output_files/pong.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 271 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 743 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 235 logic cells
+    Info (21061): Implemented 707 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4650 megabytes
-    Info: Processing ended: Thu Jul 15 22:12:28 2021
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4646 megabytes
+    Info: Processing ended: Fri Jul 16 16:38:39 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/WHU/dianzi/project/pong/output_files/pong.map.smsg.
 
 

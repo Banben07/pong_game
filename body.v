@@ -1,9 +1,10 @@
 `include "config.v"
 
-module body(vga_clk,sys_rst_n,key,body_x,body_y);
+module body(vga_clk,sys_rst_n,key,body_x,body_y,s);
 
 input vga_clk,sys_rst_n;
 input[1:0]key;
+input s;
 output reg[9:0]body_x;//方块左上角横坐标
 output reg[9:0]body_y;//方块左上角纵坐标
 
@@ -15,15 +16,18 @@ localparam color =24'b11111111_11111111_11111111;
 reg[21:0]div_cnt;//分频计数器
 reg y_direct;//方块竖直移动方向，1：向下，0：向上
 
+wire[21:0]speed;
+assign speed=s?22'd80000:22'd190000;
+
 wire move_en;
-assign move_en=(div_cnt==22'd250000-1'b1)? 1'b1:1'b0;
+assign move_en=(div_cnt==speed-1'b1)? 1'b1:1'b0;
 
 //分频
 always@(posedge vga_clk or negedge sys_rst_n) begin
 	if(!sys_rst_n)
 		div_cnt<=22'd0;
 	else begin
-		if(div_cnt<22'd250000-1'b1)
+		if(div_cnt<speed-1'b1)
 			div_cnt<=div_cnt+1'b1;
 		else
 			div_cnt<=22'd0;
