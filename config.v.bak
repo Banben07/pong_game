@@ -1,0 +1,3 @@
+`ifndef speed
+`define speed 25'd2500
+`endif

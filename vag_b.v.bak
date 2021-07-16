@@ -1,0 +1,7 @@
+module vag_b(
+	input				sys_clk,
+	input				sys_rst_n,
+	output			vga_hs,
+	output  			vga_vs,
+	output [15:0] 	vga_rgb
+	);

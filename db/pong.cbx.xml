@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="pong">
+		<CBX_INST_ENTRY INSTANCE_NAME="|vag_b|vga_pll:u_vga_pll|altpll:altpll_component" CBX_FILE_NAME="vga_pll_altpll.v"/>
+	</PROJECT>
+</LOG_ROOT>
