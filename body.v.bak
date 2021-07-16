@@ -1,0 +1,41 @@
+module body(VGA_CLK,key,move_clock,CounterX,CounterY,start,reset,head);
+input[3:0] key;
+input wire start,reset;
+wire [2:0] direction;
+input VGA_CLK,move_clock;
+input wire [11:0]CounterX;
+input wire [11:0]CounterY;
+output reg head;
+wire [11:0]stackbodyX[63:0];//To store all the x coordinates of 63 parts of the snake
+reg [11:0]stackbodyY[63:0];//To store all the y coordinates of 63 parts of the snake
+reg [4:0] length =1;//ask if it is correct
+integer count00,count01,count10,count11;
+assign			stackbodyX[0]=630;
+always @(posedge move_clock) begin	
+	if(key[0]==0 && key[1]==1) begin
+		if(stackbodyY[0]>=400) begin
+			stackbodyY[0]<=stackbodyY[0];
+		end else begin
+		stackbodyY[0]=stackbodyY[0]+10;//move right
+		end
+	end else if(key[1]==0 && key[0]==1) begin
+	   if(stackbodyY[0]<=5) begin
+			   stackbodyY[0]<=stackbodyY[0];
+		end else begin
+		stackbodyY[0]=stackbodyY[0]-10;//move left
+		end
+	end else if(~start || reset) begin
+			stackbodyY[0]<=205;
+			for (count11=1;count11<=63;count11=count11+1)
+				begin
+					stackbodyY[count11]<=720;//values that are not
+				end
+	end else begin
+		stackbodyY[0]=stackbodyY[0];
+   end
+end
+always @(VGA_CLK)
+begin
+	head<=(CounterX>stackbodyX[0] && CounterX<(stackbodyX[0]+5)) && (CounterY>stackbodyY[0] && CounterY<stackbodyY[0]+70);
+end
+endmodule
