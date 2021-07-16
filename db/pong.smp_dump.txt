@@ -1,0 +1,9 @@
+
+State Machine - |vag_b|vga_display:u_vga_display|ballbody:u_ballbody|x_direct
+Name x_direct.101 x_direct.100 x_direct.011 x_direct.010 x_direct.001 x_direct.000 
+x_direct.000 0 0 0 0 0 0 
+x_direct.001 0 0 0 0 1 1 
+x_direct.010 0 0 0 1 0 1 
+x_direct.011 0 0 1 0 0 1 
+x_direct.100 0 1 0 0 0 1 
+x_direct.101 1 0 0 0 0 1 

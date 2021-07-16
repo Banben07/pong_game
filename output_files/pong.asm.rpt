@@ -1,5 +1,5 @@
 Assembler report for pong
-Fri Jul 16 17:39:19 2021
+Fri Jul 16 22:35:42 2021
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -10,7 +10,7 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: D:/WHU/dianzi/project/pong/output_files/pong.sof
+  5. Assembler Device Options: C:/Users/Liu/Desktop/pong_game/output_files/pong.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Jul 16 17:39:19 2021 ;
+; Assembler Status      ; Successful - Fri Jul 16 22:35:42 2021 ;
 ; Revision Name         ; pong                                  ;
 ; Top-level Entity Name ; vag_b                                 ;
 ; Family                ; Cyclone IV E                          ;
@@ -77,24 +77,24 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+--------------------------------------------------+
-; Assembler Generated Files                        ;
-+--------------------------------------------------+
-; File Name                                        ;
-+--------------------------------------------------+
-; D:/WHU/dianzi/project/pong/output_files/pong.sof ;
-+--------------------------------------------------+
++------------------------------------------------------+
+; Assembler Generated Files                            ;
++------------------------------------------------------+
+; File Name                                            ;
++------------------------------------------------------+
+; C:/Users/Liu/Desktop/pong_game/output_files/pong.sof ;
++------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; Assembler Device Options: D:/WHU/dianzi/project/pong/output_files/pong.sof ;
-+----------------+-----------------------------------------------------------+
-; Option         ; Setting                                                   ;
-+----------------+-----------------------------------------------------------+
-; Device         ; EP4CE115F29C7                                             ;
-; JTAG usercode  ; 0x005BA2E8                                                ;
-; Checksum       ; 0x005BA2E8                                                ;
-+----------------+-----------------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Liu/Desktop/pong_game/output_files/pong.sof ;
++----------------+---------------------------------------------------------------+
+; Option         ; Setting                                                       ;
++----------------+---------------------------------------------------------------+
+; Device         ; EP4CE115F29C7                                                 ;
+; JTAG usercode  ; 0x005D9262                                                    ;
+; Checksum       ; 0x005D9262                                                    ;
++----------------+---------------------------------------------------------------+
 
 
 +--------------------+
@@ -103,14 +103,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Fri Jul 16 17:39:13 2021
+    Info: Processing started: Fri Jul 16 22:35:37 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off pong -c pong
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4609 megabytes
-    Info: Processing ended: Fri Jul 16 17:39:19 2021
-    Info: Elapsed time: 00:00:06
+    Info: Peak virtual memory: 4640 megabytes
+    Info: Processing ended: Fri Jul 16 22:35:42 2021
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:06
 
 

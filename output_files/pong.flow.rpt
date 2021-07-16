@@ -1,5 +1,5 @@
 Flow report for pong
-Fri Jul 16 17:39:29 2021
+Fri Jul 16 22:35:57 2021
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Jul 16 17:39:29 2021       ;
+; Flow Status                        ; Successful - Fri Jul 16 22:35:57 2021       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; pong                                        ;
 ; Top-level Entity Name              ; vag_b                                       ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 700 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 687 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 187 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 187                                         ;
+; Total logic elements               ; 907 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 895 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 192 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 192                                         ;
 ; Total pins                         ; 35 / 529 ( 7 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/16/2021 17:38:47 ;
+; Start date & time ; 07/16/2021 22:35:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; pong                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 79757138466369.162642832716280        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 70870728211958.162644610701504        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
 ; IP_TOOL_NAME                        ; ALTPLL                                ; --            ; --          ; --             ;
@@ -100,12 +100,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 4649 MB             ; 00:00:03                           ;
-; Fitter                    ; 00:00:19     ; 1.8                     ; 5627 MB             ; 00:00:28                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 4609 MB             ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 4740 MB             ; 00:00:05                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4572 MB             ; 00:00:02                           ;
-; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:44                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 4662 MB             ; 00:00:03                           ;
+; Fitter                    ; 00:00:23     ; 2.0                     ; 5635 MB             ; 00:00:34                           ;
+; Assembler                 ; 00:00:06     ; 1.0                     ; 4632 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 4758 MB             ; 00:00:07                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4591 MB             ; 00:00:03                           ;
+; Total                     ; 00:00:43     ; --                      ; --                  ; 00:00:53                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -114,11 +114,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; LAPTOP-0UUOTVVM  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; LAPTOP-0UUOTVVM  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; LAPTOP-0UUOTVVM  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; LAPTOP-0UUOTVVM  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; LAPTOP-0UUOTVVM  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; Sakamoto         ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; Sakamoto         ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; Sakamoto         ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; Sakamoto         ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; Sakamoto         ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
