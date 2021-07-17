@@ -1,10 +1,13 @@
 `include "config.v"
-
+//////////显示模块//////////
 module vga_display(
 	input	vga_clk,
 	input	sys_rst_n,
+	input	SW1,
 	input [7:0]keycode1,
 	input [7:0]keycode2,
+	input [7:0]keycode3,
+	input [7:0]keycode4,
 	input start,
 	input s,
 	
@@ -13,47 +16,46 @@ module vga_display(
 	input		 [9:0] pixel_ypos
 	);
 	
-//parameter H_DISP=10'd640;
-//parameter V_DISP=10'd480;
 localparam WHITE	=24'b11111111_11111111_11111111;
 localparam BLACK	=24'b00000000_00000000_00000000;
 localparam RED		=24'b11111111_00000000_00000000;
 localparam GREEN	=24'b00000000_11111111_00000000;
 localparam BLUE	=24'b00000000_00000000_11111111;
-//localparam SLDE_W =10'd40; //边框宽度
+
 
 wire[9:0]body0_x,body0_y,body1_x,body1_y,ball_x,ball_y;
 wire [3:0]score;
 reg[1:0] key0,key1;
 wire guiwei;
 
-//assign score=start?score:4'b0000;
-//assign score=4'b0000;
 //键盘编码
-always @(keycode1,keycode2)begin
+always @(keycode1,keycode2,keycode3,keycode4)begin
 	key1=2'b00;key0=2'b00;
-	if(keycode1==8'h4B||keycode2==8'h4B)
+	if(keycode1==8'h4B||keycode2==8'h4B||keycode3==8'h4B||keycode4==8'h4B)
 		key1[1]<=1;
-	if(keycode1==8'h44||keycode2==8'h44)
+	if(keycode1==8'h44||keycode2==8'h44||keycode3==8'h44||keycode4==8'h44)
 		key1[0]<=1;
-	if(keycode1==8'h1B||keycode2==8'h1B)
+	if(keycode1==8'h1B||keycode2==8'h1B||keycode3==8'h1B||keycode4==8'h1B)
 		key0[1]<=1;
-	if(keycode1==8'h1D||keycode2==8'h1D)
+	if(keycode1==8'h1D||keycode2==8'h1D||keycode3==8'h1D||keycode4==8'h1D)
 		key0[0]<=1;
 end
 
 
-body body0(
+body0 body0(					//木板（设人机）
 	.vga_clk(vga_clk),
 	.sys_rst_n(sys_rst_n),
 	.key(key0),
 	.body_x(body0_x),
 	.body_y(body0_y),
 	.s(s),
-	.guiwei(guiwei)
+	.guiwei(guiwei),
+	.ai_switch(SW1),
+	.ballbody_x(ball_x),
+	.ballbody_y(ball_y)
 );
 
-body #(22'd580) body1(
+body1 #(22'd580) body1(		//木板（不设人机）
 	.vga_clk(vga_clk),
 	.sys_rst_n(sys_rst_n),
 	.key(key1),
@@ -63,7 +65,7 @@ body #(22'd580) body1(
 	.guiwei(guiwei)
 );
 
-ballbody u_ballbody(
+ballbody u_ballbody(			//小球
 	.vga_clk(vga_clk),
 	.body_x(ball_x),
 	.body_y(ball_y),

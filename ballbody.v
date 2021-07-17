@@ -1,5 +1,5 @@
 `include "config.v"
-
+//////////小球//////////
 module ballbody(vga_clk,body_x,body_y,padbody_y0,padbody_y1,start,sys_rst_n,score,s,guiwei);
 input wire start,sys_rst_n;
 input vga_clk;
@@ -19,11 +19,11 @@ initial 		begin
 end
 
 reg[21:0]div_cnt;//分频计数器
-reg y_direct;//球竖直移动方向，1：向下，0：向上
-reg [2:0] x_direct;//球水平移动方向，1：向左，0：向右
+reg y_direct;//球竖直移动方向，
+reg [2:0] x_direct;//球水平移动方向
 wire move_en;
 wire[21:0]speed;
-assign speed=s?22'd80000:22'd180000;
+assign speed=s?22'd80000:22'd180000;//速度选择
 
 assign move_en=(div_cnt==speed-1'b1)? 1'b1:1'b0;
 
@@ -40,7 +40,7 @@ always@(posedge vga_clk or negedge sys_rst_n) begin
 end
 
 
-//球速度方向
+//球速度方向更新
 always @(posedge vga_clk ) begin
 	if (~start || ~sys_rst_n) begin
 		x_direct<=1'd4;
@@ -77,14 +77,14 @@ always @(posedge vga_clk ) begin
 end
 	
 	
-//球坐标
+//球坐标更新
 always @(posedge vga_clk ) begin
    guiwei<=0;
 	if (~start || ~sys_rst_n) begin
 		stackbodyY<=`V_DISP/2-`BALL_W/2;
 		stackbodyX<=`H_DISP/2-`BALL_W/2;
 		score<=4'b0000;
-	end
+	end 
 	else if(move_en) begin
 	
 		if(x_direct==3 && y_direct) begin
@@ -112,7 +112,7 @@ always @(posedge vga_clk ) begin
 		end else if(x_direct==5 && !y_direct) begin
 			stackbodyX<=stackbodyX-1'd1;stackbodyY<=stackbodyY-1'b1;
 		end
-
+	end
 		if(stackbodyX==`SLDE_W+1 ||  stackbodyX==`SLDE_W+2) begin
 			stackbodyY<=`V_DISP/2-`BALL_W/2; 
 			stackbodyX<=`H_DISP/2-`BALL_W/2;
@@ -130,7 +130,6 @@ always @(posedge vga_clk ) begin
 			stackbodyY<=`V_DISP/2-`BALL_W/2;
 			stackbodyX<=`H_DISP/2-`BALL_W/2;
 		end
-	end
 end
 
 assign body_x=stackbodyX[9:0];

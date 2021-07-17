@@ -1,3 +1,4 @@
+//////////键盘驱动模块//////////
 module keyboard(
 					input	  CLK_50,
 					inout   ps2_dat,

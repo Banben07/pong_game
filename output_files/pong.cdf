@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("D:/WHU/dianzi/project/pong/output_files/") File("pong.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("C:/Users/Liu/Desktop/pong_game/output_files/") File("pong.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

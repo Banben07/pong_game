@@ -1,1 +1,2 @@
-Warning (10268): Verilog HDL information at vga_display.v(33): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at vga_display.v(32): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at body.v(37): always construct contains both blocking and non-blocking assignments

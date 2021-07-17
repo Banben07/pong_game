@@ -103,4 +103,25 @@ set_global_assignment -name VERILOG_FILE config.v
 set_location_assignment PIN_G6 -to ps2_clk
 set_location_assignment PIN_H5 -to ps2_dat
 set_location_assignment PIN_AB28 -to s
+set_global_assignment -name VERILOG_FILE body1.v
+set_location_assignment PIN_AC28 -to SW1
+set_location_assignment PIN_H15 -to LEDR[17]
+set_location_assignment PIN_G16 -to LEDR[16]
+set_location_assignment PIN_F19 -to LEDR[1]
+set_location_assignment PIN_H17 -to LEDR[13]
+set_location_assignment PIN_J16 -to LEDR[12]
+set_location_assignment PIN_H16 -to LEDR[11]
+set_location_assignment PIN_J15 -to LEDR[10]
+set_location_assignment PIN_G17 -to LEDR[9]
+set_location_assignment PIN_J17 -to LEDR[8]
+set_location_assignment PIN_H19 -to LEDR[7]
+set_location_assignment PIN_J19 -to LEDR[6]
+set_location_assignment PIN_E18 -to LEDR[5]
+set_location_assignment PIN_F18 -to LEDR[4]
+set_location_assignment PIN_F21 -to LEDR[3]
+set_location_assignment PIN_E19 -to LEDR[2]
+set_location_assignment PIN_AH17 -to hex7
+set_location_assignment PIN_AF18 -to hex5
+set_location_assignment PIN_AA21 -to hex3
+set_location_assignment PIN_W26 -to hex2
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
